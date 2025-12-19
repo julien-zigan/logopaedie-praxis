@@ -7,11 +7,15 @@
         </div>
         <div class="ml-3">
             <h3 class="text-sm font-bold text-amber-800 uppercase tracking-wide">
-                API im Aufbau
+                Anwendung im Aufbau
             </h3>
             <div class="mt-1 text-sm text-amber-700">
                 <p>
-                    Diese Schnittstelle befindet sich aktuell in der Entwicklung. Derzeit sind nur die <strong>Therapeuten-</strong> und die <strong>Patienten-</strong>Endpunkte aktiv. Funktionen für Patienten, Termine und Abrechnungen werden kontinuierlich hinzugefügt.
+                    Diese Anwendung befindet sich aktuell in der Entwicklung.
+                    Derzeit sind nur die <strong>Therapeuten-</strong>, die <strong>Patienten-
+                    </strong> und die <strong>Sitzungs-</strong>Endpunkte aktiv.
+                    Funktionen für Patienten, Termine und Abrechnungen werden kontinuierlich 
+                    hinzugefügt.
                 </p>
             </div>
         </div>

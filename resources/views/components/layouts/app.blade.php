@@ -11,18 +11,16 @@
 <body class="bg-gray-50 text-gray-900 font-sans">
 
     <x-header />
-    
-    <x-alerts.under-construction />
 
     <main class="max-w-5xl mx-auto px-4 py-12">
-        
-        <x-endpoint-docs.endpoints />
+
+        <x-alerts.under-construction />
+
+        {{ $slot }}
 
     </main>
 
-    <footer class="text-center py-8 text-gray-400 text-sm">
-        &copy; {{ date('Y') }} Logopädie Praxis Verwaltung. Alle Rechte vorbehalten.
-    </footer>
+    <x-footer />
 
 </body>
 
