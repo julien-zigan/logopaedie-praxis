@@ -32,4 +32,4 @@ jobs:
           remote-user: ${{ secrets.FTP_USERNAME }}
           remote-password: ${{ secrets.FTP_PASSWORD }}
           remote-path: ${{ secrets.FTP_REMOTE_PATH }}
-          sync: "delta" 
+          sync: "full" 
