@@ -3,18 +3,19 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Models\TherapySessions;
+use App\Http\Resources\TherapySessionResource;
+use App\Models\TherapySession;
 use Illuminate\Http\Request;
 
-class TherapySessionsController extends Controller
+class TherapySessionController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $therapySessions = TherapySessions::all();
-        return response()->json($therapySessions);
+        $therapySessions = TherapySession::with(['therapist', 'patient'])->get();
+        return TherapySessionResource::collection($therapySessions);
     }
 
     /**
@@ -30,7 +31,7 @@ class TherapySessionsController extends Controller
             'notes' => 'nullable|string',
         ]);
 
-        $therapySession = TherapySessions::create($validated);
+        $therapySession = TherapySession::create($validated);
 
         return response()->json($therapySession, 201);
     }
@@ -38,15 +39,15 @@ class TherapySessionsController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(TherapySessions $therapySessions)
+    public function show(TherapySession $therapySession)
     {
-        return response()->json($therapySessions);
+        return response()->json($therapySession);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, TherapySessions $therapySessions)
+    public function update(Request $request, TherapySession $therapySession)
     {
         $validated = $request->validate([
             'therapist_id' => 'sometimes|required|exists:therapists,id',
@@ -56,15 +57,15 @@ class TherapySessionsController extends Controller
             'notes' => 'nullable|string',
         ]);
 
-        $therapySessions->update($validated);
+        $therapySession->update($validated);
 
-        return response()->json($therapySessions);
+        return response()->json($therapySession);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(TherapySessions $therapySessions)
+    public function destroy(TherapySession $therapySession)
     {
         $therapySessions->delete();
         return response()->json(null, 204);

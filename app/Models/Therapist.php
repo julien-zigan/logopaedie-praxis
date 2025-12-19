@@ -25,6 +25,6 @@ class Therapist extends Model
 
     public function therapySessions(): HasMany
     {
-        return $this->hasMany(TherapySessions::class);
+        return $this->hasMany(TherapySession::class);
     }
 }

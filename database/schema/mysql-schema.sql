@@ -157,6 +157,25 @@ CREATE TABLE `therapists` (
   UNIQUE KEY `therapists_email_unique` (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
+DROP TABLE IF EXISTS `therapy_sessions`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `therapy_sessions` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `therapist_id` bigint unsigned NOT NULL,
+  `patient_id` bigint unsigned NOT NULL,
+  `session_date` datetime NOT NULL,
+  `duration_minutes` int NOT NULL,
+  `notes` text COLLATE utf8mb4_unicode_ci,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `therapy_sessions_therapist_id_foreign` (`therapist_id`),
+  KEY `therapy_sessions_patient_id_foreign` (`patient_id`),
+  CONSTRAINT `therapy_sessions_patient_id_foreign` FOREIGN KEY (`patient_id`) REFERENCES `patients` (`id`),
+  CONSTRAINT `therapy_sessions_therapist_id_foreign` FOREIGN KEY (`therapist_id`) REFERENCES `therapists` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `users`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
@@ -186,3 +205,4 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES (3,'0001_01_01_0000
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES (4,'2025_12_19_112638_create_therapists_table',2);
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES (5,'2025_12_19_113046_create_personal_access_tokens_table',2);
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES (6,'2025_12_19_123727_create_patients_table',3);
+INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES (7,'2025_12_19_142500_create_therapy_sessions_table',4);
