@@ -10,11 +10,11 @@
 
 <body class="bg-gray-50 text-gray-900 font-sans">
 
+    <x-appbar.app-bar />
+
     <x-header />
 
     <main class="max-w-5xl mx-auto px-4 py-12">
-
-        <x-alerts.under-construction />
 
         {{ $slot }}
 
