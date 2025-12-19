@@ -1,5 +1,7 @@
 # Logopädie Manager (Laravel Lernprojekt)
 
+### Zur live App auf [steinuntersteinen.com](https://www.steinuntersteinen.com)
+
 Dies ist mein Einstiegsprojekt in das Laravel-Framework. Ich entwickle diese Anwendung, um die Konzepte der modernen Webentwicklung mit Laravel – von der inkrementellen Datenbank-Entwicklung bis hin zur REST-API - praxisnah zu erlernen und anzuwenden.
 
 ## 🛠 Stand der Entwicklung
