@@ -6,4 +6,5 @@
     <x-endpoint-docs.patients />
 
     <x-endpoint-docs.therapy-sessions />
+    
 </X-layouts.app>
