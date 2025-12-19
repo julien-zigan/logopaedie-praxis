@@ -64,6 +64,7 @@ class TherapistController extends Controller
      */
     public function destroy(Therapist $therapist)
     {
+    
         $therapist->delete();
         return response()->json(null, 204);
     }

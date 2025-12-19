@@ -13,3 +13,7 @@ Route::get('/docs/api', function () {
 Route::get('/web', function () {
     return view('components.pages.web-home');
 });
+
+Route::get('/auth', function () {
+    return view('components.pages.registration-login');
+});
