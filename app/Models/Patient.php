@@ -6,9 +6,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Therapist extends Model
+class Patient extends Model
 {
-    /** @use HasFactory<\Database\Factories\TherapistFactory> */
+    /** @use HasFactory<\Database\Factories\PatientFactory> */
     use HasFactory;
 
     /**
@@ -18,9 +18,10 @@ class Therapist extends Model
      */
     protected $fillable = [
         'name',
-        'specialization',
+        'date_of_birth',
         'email',
         'phone',
+        'address',
     ];
 
     public function therapySessions(): HasMany

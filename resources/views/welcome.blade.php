@@ -35,7 +35,7 @@
                 </h3>
                 <div class="mt-1 text-sm text-amber-700">
                     <p>
-                        Diese Schnittstelle befindet sich aktuell in der Entwicklung. Derzeit sind nur einige <strong>Therapeuten-Endpunkte</strong> aktiv. Funktionen für Patienten, Termine und Abrechnungen werden kontinuierlich hinzugefügt.
+                        Diese Schnittstelle befindet sich aktuell in der Entwicklung. Derzeit sind nur die <strong>Therapeuten-</strong> und die <strong>Patienten-</strong>Endpunkte aktiv. Funktionen für Patienten, Termine und Abrechnungen werden kontinuierlich hinzugefügt.
                     </p>
                 </div>
             </div>
@@ -54,7 +54,7 @@
                     </div>
 
                     <div class="grid gap-6 md:grid-cols-1">
-                        <div class="flex flex-col p-4 border rounded-lg bg-white shadow-sm">
+                        <div class="flex flex-col p-4 border rounded-lg bg-white shadow-sm border-l-4 border-l-blue-500">
                             <div class="flex items-start mb-4">
                                 <span class="bg-blue-500 text-white text-xs font-bold px-2 py-1 rounded mr-3">GET</span>
                                 <div>
@@ -114,7 +114,7 @@
                             </div>
                         </div>
 
-                        <div class="flex flex-col p-4 border rounded-lg bg-white shadow-sm">
+                        <div class="flex flex-col p-4 border rounded-lg bg-white shadow-sm border-l-4 border-l-red-500">
                             <div class="flex items-start mb-4">
                                 <span class="bg-red-500 text-white text-xs font-bold px-2 py-1 rounded mr-3">DEL</span>
                                 <div>
@@ -134,6 +134,116 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="space-y-6">
+            <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+                <div class="p-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-xl font-semibold text-gray-800 underline decoration-blue-500">Patientten-Verwaltung</h3>
+                        <code class="text-sm bg-gray-100 px-2 py-1 rounded">/api/patients</code>
+                    </div>
+
+                    <div class="grid gap-6 md:grid-cols-1">
+                        <div class="flex flex-col p-4 border rounded-lg bg-white shadow-sm border-l-4 border-l-blue-500">
+                            <div class="flex items-start mb-4">
+                                <span class="bg-blue-500 text-white text-xs font-bold px-2 py-1 rounded mr-3">GET</span>
+                                <div>
+                                    <p class="font-bold text-slate-800">Patientenliste abrufen</p>
+                                    <code class="text-xs text-blue-600">/api/patients</code>
+                                </div>
+                            </div>
+                            <div class="grid md:grid-cols-2 gap-4 text-xs font-mono">
+                                <div class="bg-slate-800 p-3 rounded text-blue-300">
+                                    <p class="text-[10px] uppercase mb-1 text-slate-500">// Request</p>
+                                    GET /api/patients
+                                </div>
+                                <div class="bg-slate-900 p-3 rounded text-green-400">
+                                    <p class="text-[10px] uppercase mb-1 text-slate-500">// Response (200)</p>
+                                    [{"id": 1, "name": "Hans Müller", "birthdate": "1945-03-12"}]
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col p-4 border rounded-lg bg-white shadow-sm border-l-4 border-l-green-500">
+                            <div class="flex items-start mb-4">
+                                <span class="bg-green-500 text-white text-xs font-bold px-2 py-1 rounded mr-3">POST</span>
+                                <div>
+                                    <p class="font-bold text-slate-800">Neuen Patienten anlegen</p>
+                                    <code class="text-xs text-green-600">/api/patients</code>
+                                </div>
+                            </div>
+                            <div class="grid md:grid-cols-2 gap-4 text-xs font-mono">
+                                <div class="bg-slate-800 p-3 rounded text-blue-300">
+                                    <p class="text-[10px] uppercase mb-1 text-slate-500">// Payload (Date: YYYY-MM-DD)</p>
+                                    {
+                                    "name": "Lukas (Kind)",
+                                    "birthdate": "2018-06-15",
+                                    "legal_representative": "Maria Musterfrau"
+                                    }
+                                </div>
+                                <div class="bg-slate-900 p-3 rounded text-green-400">
+                                    <p class="text-[10px] uppercase mb-1 text-slate-500">// Response (201)</p>
+                                    {
+                                    "id": 102,
+                                    "name": "Lukas (Kind)",
+                                    "legal_representative": "Maria Musterfrau"
+                                    }
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col p-4 border rounded-lg bg-white shadow-sm border-l-4 border-l-orange-400">
+                            <div class="flex items-start mb-4">
+                                <span class="bg-orange-500 text-white text-xs font-bold px-2 py-1 rounded mr-3">PUT</span>
+                                <div>
+                                    <p class="font-bold text-slate-800">Patientendaten ändern</p>
+                                    <code class="text-xs text-orange-600">/api/patients/{id}</code>
+                                </div>
+                            </div>
+                            <div class="grid md:grid-cols-2 gap-4 text-xs font-mono">
+                                <div class="bg-slate-800 p-3 rounded text-blue-300">
+                                    <p class="text-[10px] uppercase mb-1 text-slate-500">// Request (z.B. Vormund ändern)</p>
+                                    {
+                                    "legal_representative": "Neuer Betreuer Name"
+                                    }
+                                </div>
+                                <div class="bg-slate-900 p-3 rounded text-green-400">
+                                    <p class="text-[10px] uppercase mb-1 text-slate-500">// Response (200)</p>
+                                    {
+                                    "id": 102,
+                                    "legal_representative": "Neuer Betreuer Name"
+                                    }
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col p-4 border rounded-lg bg-white shadow-sm border-l-4 border-l-red-500">
+                            <div class="flex items-start mb-4">
+                                <span class="bg-red-500 text-white text-xs font-bold px-2 py-1 rounded mr-3">DEL</span>
+                                <div>
+                                    <p class="font-bold text-slate-800">Patienten löschen</p>
+                                    <code class="text-xs text-red-600">/api/patients/{id}</code>
+                                </div>
+                            </div>
+                            <div class="grid md:grid-cols-2 gap-4 text-xs font-mono">
+                                <div class="bg-slate-800 p-3 rounded text-blue-300">
+                                    <p class="text-[10px] uppercase mb-1 text-slate-500">// Request</p>
+                                    DELETE /api/patients/102
+                                </div>
+                                <div class="bg-slate-900 p-3 rounded text-green-400">
+                                    <p class="text-[10px] uppercase mb-1 text-slate-500">// Response (204)</p>
+                                    [No Content]
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
 
 
     </main>
