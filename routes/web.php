@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('components.pages.home');
+    return view('index');
 });
 
 Route::get('/docs/api', function () {
