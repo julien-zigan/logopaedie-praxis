@@ -14,7 +14,7 @@
                 <div class="grid grid-cols-1 gap-6">
 
                     <div class="space-y-2">
-                        <label class="text-sm font-bold text-slate-700 ml-1">Vollständiger Name</label>
+                        <label class="text-sm font-bold text-slate-700 ml-1">Vorname</label>
                         <div class="relative group">
                             <span
                                 class="absolute inset-y-0 left-0 flex items-center pl-4 text-slate-400 group-focus-within:text-blue-600 transition-colors">
@@ -23,7 +23,23 @@
                                         d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
                                 </svg>
                             </span>
-                            <input type="text" name="name" required
+                            <input type="text" name="first_name" required
+                                class="w-full bg-slate-50 border border-slate-200 rounded-2xl py-3 pl-12 pr-4 text-slate-800 placeholder:text-slate-400 focus:bg-white focus:ring-4 focus:ring-blue-100 focus:border-blue-500 transition-all outline-none"
+                                placeholder="z.B. Dr. Aris Müller">
+                        </div>
+                    </div>
+
+                    <div class="space-y-2">
+                        <label class="text-sm font-bold text-slate-700 ml-1">Nachname</label>
+                        <div class="relative group">
+                            <span
+                                class="absolute inset-y-0 left-0 flex items-center pl-4 text-slate-400 group-focus-within:text-blue-600 transition-colors">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                                </svg>
+                            </span>
+                            <input type="text" name="last_name" required
                                 class="w-full bg-slate-50 border border-slate-200 rounded-2xl py-3 pl-12 pr-4 text-slate-800 placeholder:text-slate-400 focus:bg-white focus:ring-4 focus:ring-blue-100 focus:border-blue-500 transition-all outline-none"
                                 placeholder="z.B. Dr. Aris Müller">
                         </div>

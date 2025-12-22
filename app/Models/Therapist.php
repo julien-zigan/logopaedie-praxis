@@ -11,7 +11,8 @@ class Therapist extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name',
+        'first_name',
+        'last_name',
         'specialization',
     ];
 }

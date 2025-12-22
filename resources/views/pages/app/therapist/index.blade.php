@@ -37,9 +37,9 @@
                                     <div class="flex items-center gap-3">
                                         <div
                                             class="w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-bold text-xs">
-                                            {{ explode(' ', $therapist->name)['0']['0'] . explode(' ', $therapist->name)['1']['0'] }}
+                                            {{ $therapist->first_name['0'] . $therapist->last_name['0'] }}
                                         </div>
-                                        <span class="font-bold text-slate-700">{{ $therapist->name }}</span>
+                                        <span class="font-bold text-slate-700">{{ $therapist->first_name . ' ' .$therapist->last_name }}</span>
                                     </div>
                                 </td>
                                 <td class="px-6 py-4">

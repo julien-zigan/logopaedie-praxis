@@ -40,7 +40,8 @@ class TherapistController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'name' => 'required|string|max:255',
+            'first_name' => 'required|string|max:255',
+            'last_name' => 'required|string|max:255',
             'specialization' => 'string|max:255|nullable',
         ]);
 
@@ -72,7 +73,8 @@ class TherapistController extends Controller
     public function update(Request $request, Therapist $therapist)
     {
         $validated = $request->validate([
-            'name' => 'required|string|max:255',
+            'first_name' => 'required|string|max:255',
+            'last_name' => 'required|string|max:255',
             'specialization' => 'string|max:255|nullable',
         ]);
 
@@ -88,6 +90,7 @@ class TherapistController extends Controller
     public function destroy(Therapist $therapist)
     {
         $this->repository->delete($therapist);
+
         return redirect()->route('therapists.index')
             ->with('success', "{$therapist->name} gelöscht!");
     }

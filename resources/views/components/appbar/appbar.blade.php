@@ -7,8 +7,8 @@
         </div>
 
         <div class="flex items-center gap-2">
-            <x-appbar.search-bar />
-            <x-appbar.notifications />
+            {{-- <x-appbar.search-bar />
+            <x-appbar.notifications /> --}}
             <x-appbar.profile-menu />
         </div>
     </div>

@@ -17,7 +17,8 @@ class TherapistFactory extends Factory
     public function definition(): array
     {
         return [
-            'name'=> $this->faker->name,
+            'first_name'=> $this->faker->firstName(),
+            'last_name'=> $this->faker->lastName(),
             'specialization'=> $this->faker->sentence(3, true)
         ];
     }
