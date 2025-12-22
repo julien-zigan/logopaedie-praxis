@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -19,7 +20,8 @@ class TherapistFactory extends Factory
         return [
             'first_name'=> $this->faker->firstName(),
             'last_name'=> $this->faker->lastName(),
-            'specialization'=> $this->faker->sentence(3, true)
+            'specialization'=> $this->faker->sentence(3, true),
+            'user_id' => User::inRandomOrder()->first()->id ?? User::factory(),
         ];
     }
 }

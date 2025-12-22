@@ -7,9 +7,17 @@
         </div>
 
         <div class="flex items-center gap-2">
-            {{-- <x-appbar.search-bar />
-            <x-appbar.notifications /> --}}
-            <x-appbar.profile-menu />
+            @auth
+                <x-appbar.profile-menu />
+            @else
+                <a href="/login" class="px-4 py-2 text-sm font-bold text-slate-600 hover:text-blue-600 hover:bg-blue-50 rounded-xl transition-all">
+                    Anmelden
+                </a>
+
+                <a href="/register" class="bg-blue-600 text-white px-5 py-2.5 rounded-xl text-sm font-bold shadow-md shadow-blue-200 hover:bg-blue-700 hover:-translate-y-0.5 active:scale-95 transition-all">
+                    Registrieren
+                </a>
+            @endauth
         </div>
     </div>
 </nav>

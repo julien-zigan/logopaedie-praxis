@@ -25,9 +25,9 @@
                                         d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
                                 </svg>
                             </span>
-                            <input type="text" name="first_ame" required
+                            <input type="text" name="first_name" required
                                 class="w-full bg-slate-50 border border-slate-200 rounded-2xl py-3 pl-12 pr-4 text-slate-800 placeholder:text-slate-400 focus:bg-white focus:ring-4 focus:ring-blue-100 focus:border-blue-500 transition-all outline-none"
-                                placeholder="z.B. Dr. Aris Müller" value="{{ old('name', $therapist->name) }}">
+                                placeholder="z.B. Dr. Aris Müller" value="{{ old('name', $therapist->first_name) }}">
                         </div>
                     </div>
 
@@ -43,7 +43,7 @@
                             </span>
                             <input type="text" name="last_ame" required
                                 class="w-full bg-slate-50 border border-slate-200 rounded-2xl py-3 pl-12 pr-4 text-slate-800 placeholder:text-slate-400 focus:bg-white focus:ring-4 focus:ring-blue-100 focus:border-blue-500 transition-all outline-none"
-                                placeholder="z.B. Dr. Aris Müller" value="{{ old('name', $therapist->name) }}">
+                                placeholder="z.B. Dr. Aris Müller" value="{{ old('name', $therapist->last_name) }}">
                         </div>
                     </div>
 

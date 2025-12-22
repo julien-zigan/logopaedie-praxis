@@ -47,7 +47,9 @@
                                         {{ $therapist->specialization }}
                                     </span>
                                 </td>
+                                
                                 <td class="px-6 py-4 text-right">
+                                    @if (auth()->check() && auth()->id() === $therapist->user_id)
                                     <div class="flex items-center justify-end gap-3">
                                         <a href="{{ route('therapists.edit', $therapist->id) }}"
                                             class="text-slate-400 hover:text-blue-600 transition-colors">
@@ -72,6 +74,7 @@
                                             </button>
                                         </form>
                                     </div>
+                                    @endif
                                 </td>
                             </tr>
                         @empty

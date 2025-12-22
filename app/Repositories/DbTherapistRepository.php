@@ -14,7 +14,7 @@ class DbTherapistRepository implements TherapistRepository
 
     public function create(array $data): Therapist
     {
-        return Therapist::create($data);
+        return auth()->user()->therapists()->create($data);
     }
 
     public function update(Therapist $therapist, array $data): bool

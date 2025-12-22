@@ -2,13 +2,16 @@
 
 namespace App\Http\Controllers\Web;
 
-use App\Http\Controllers\Controller;
 use App\Models\Therapist;
-use App\Repositories\TherapistRepository;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Repositories\TherapistRepository;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 class TherapistController extends Controller
 {
+    use AuthorizesRequests; // Use the trait here
+
     private TherapistRepository $repository;
 
     public function __construct(TherapistRepository $repository)
@@ -89,6 +92,7 @@ class TherapistController extends Controller
      */
     public function destroy(Therapist $therapist)
     {
+        $this->authorize('delete', $therapist);
         $this->repository->delete($therapist);
 
         return redirect()->route('therapists.index')

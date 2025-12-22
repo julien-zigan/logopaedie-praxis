@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('first_name', 255);
             $table->string('last_name',255);
             $table->string('specialization', 255)->nullable();
+            $table->foreignId('user_id')->constrained('users');
             $table->timestamps();
         });
     }
