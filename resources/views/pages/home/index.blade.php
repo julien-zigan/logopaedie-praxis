@@ -15,7 +15,7 @@
                             d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
                     </svg>
                 </div>
-                <h2 class="text-xl font-bold text-gray-800 mb-2">Web-Oberfläche</h2>
+                <h2 class="text-xl font-bold text-gray-800 mb-2">Zur Web-App</h2>
                 <p class="text-gray-500 text-sm">
                     Hier gelangen Sie zum Dashboard für die Verwaltung von Patienten und Sitzungen.
                 </p>

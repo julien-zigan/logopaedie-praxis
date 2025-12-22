@@ -50,6 +50,6 @@ class User extends Authenticatable
 
     public function therapists(): HasMany
     {
-        return $this->hasMany(therapist::class);
+        return $this->hasMany(Therapist::class);
     }
 }
