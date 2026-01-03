@@ -10,6 +10,7 @@ export default defineConfig({
             input: ['resources/css/app.css', 'resources/js/app.tsx'],
             ssr: 'resources/js/ssr.tsx',
             refresh: true,
+            publicDirectory: 'public_html',
         }),
         react({
             babel: {
@@ -21,6 +22,10 @@ export default defineConfig({
             formVariants: true,
         }),
     ],
+    build: {
+        outDir: 'public_html',
+        emptyOutDir: false,
+    },
     esbuild: {
         jsx: 'automatic',
     },
