@@ -23,7 +23,7 @@ export default defineConfig({
         }),
     ],
     build: {
-        outDir: 'public_html',
+        outDir: 'public_html/build/',
         emptyOutDir: false,
     },
     esbuild: {

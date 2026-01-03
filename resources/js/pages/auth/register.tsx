@@ -13,10 +13,10 @@ import AuthLayout from '@/layouts/auth-layout';
 export default function Register() {
     return (
         <AuthLayout
-            title="Create an account"
-            description="Enter your details below to create your account"
+            title="Konto erstellen"
+            description="Geben Sie Ihre Daten unten ein, um Ihr Konto zu erstellen"
         >
-            <Head title="Register" />
+            <Head title="Registrieren" />
             <Form
                 {...store.form()}
                 resetOnSuccess={['password', 'password_confirmation']}
@@ -36,7 +36,8 @@ export default function Register() {
                                     tabIndex={1}
                                     autoComplete="name"
                                     name="name"
-                                    placeholder="Full name"
+                                    placeholder="Vor- und Nachname"
+                                    className="focus-visible:ring-green-500"
                                 />
                                 <InputError
                                     message={errors.name}
@@ -45,7 +46,7 @@ export default function Register() {
                             </div>
 
                             <div className="grid gap-2">
-                                <Label htmlFor="email">Email address</Label>
+                                <Label htmlFor="email">E-Mail-Adresse</Label>
                                 <Input
                                     id="email"
                                     type="email"
@@ -53,13 +54,14 @@ export default function Register() {
                                     tabIndex={2}
                                     autoComplete="email"
                                     name="email"
-                                    placeholder="email@example.com"
+                                    placeholder="name@beispiel.de"
+                                    className="focus-visible:ring-green-500"
                                 />
                                 <InputError message={errors.email} />
                             </div>
 
                             <div className="grid gap-2">
-                                <Label htmlFor="password">Password</Label>
+                                <Label htmlFor="password">Passwort</Label>
                                 <Input
                                     id="password"
                                     type="password"
@@ -67,14 +69,15 @@ export default function Register() {
                                     tabIndex={3}
                                     autoComplete="new-password"
                                     name="password"
-                                    placeholder="Password"
+                                    placeholder="Passwort wählen"
+                                    className="focus-visible:ring-green-500"
                                 />
                                 <InputError message={errors.password} />
                             </div>
 
                             <div className="grid gap-2">
                                 <Label htmlFor="password_confirmation">
-                                    Confirm password
+                                    Passwort bestätigen
                                 </Label>
                                 <Input
                                     id="password_confirmation"
@@ -83,7 +86,8 @@ export default function Register() {
                                     tabIndex={4}
                                     autoComplete="new-password"
                                     name="password_confirmation"
-                                    placeholder="Confirm password"
+                                    placeholder="Passwort wiederholen"
+                                    className="focus-visible:ring-green-500"
                                 />
                                 <InputError
                                     message={errors.password_confirmation}
@@ -92,19 +96,23 @@ export default function Register() {
 
                             <Button
                                 type="submit"
-                                className="mt-2 w-full"
+                                className="mt-2 w-full bg-green-600 hover:bg-green-700 text-white font-bold uppercase tracking-wider transition-all active:scale-[0.98]"
                                 tabIndex={5}
-                                data-test="register-user-button"
+                                disabled={processing}
                             >
-                                {processing && <Spinner />}
-                                Create account
+                                {processing && <Spinner className="mr-2 h-4 w-4" />}
+                                Konto erstellen
                             </Button>
                         </div>
 
                         <div className="text-center text-sm text-muted-foreground">
-                            Already have an account?{' '}
-                            <TextLink href={login()} tabIndex={6}>
-                                Log in
+                            Haben Sie bereits ein Konto?{' '}
+                            <TextLink
+                                href={login()}
+                                tabIndex={6}
+                                className="text-green-600 hover:text-green-700 font-semibold"
+                            >
+                                Anmelden
                             </TextLink>
                         </div>
                     </>

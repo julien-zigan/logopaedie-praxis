@@ -24,10 +24,10 @@ export default function Login({
 }: LoginProps) {
     return (
         <AuthLayout
-            title="Log in to your account"
-            description="Enter your email and password below to log in"
+            title="Anmelden"
+            description="Geben Sie Ihre E-Mail und Ihr Passwort ein, um sich anzumelden"
         >
-            <Head title="Log in" />
+            <Head title="Anmelden" />
 
             <Form
                 {...store.form()}
@@ -38,7 +38,7 @@ export default function Login({
                     <>
                         <div className="grid gap-6">
                             <div className="grid gap-2">
-                                <Label htmlFor="email">Email address</Label>
+                                <Label htmlFor="email">E-Mail-Adresse</Label>
                                 <Input
                                     id="email"
                                     type="email"
@@ -47,21 +47,22 @@ export default function Login({
                                     autoFocus
                                     tabIndex={1}
                                     autoComplete="email"
-                                    placeholder="email@example.com"
+                                    placeholder="name@beispiel.de"
+                                    className="focus-visible:ring-green-500"
                                 />
                                 <InputError message={errors.email} />
                             </div>
 
                             <div className="grid gap-2">
                                 <div className="flex items-center">
-                                    <Label htmlFor="password">Password</Label>
+                                    <Label htmlFor="password">Passwort</Label>
                                     {canResetPassword && (
                                         <TextLink
                                             href={request()}
-                                            className="ml-auto text-sm"
+                                            className="ml-auto text-sm text-green-600 hover:text-green-700"
                                             tabIndex={5}
                                         >
-                                            Forgot password?
+                                            Passwort vergessen?
                                         </TextLink>
                                     )}
                                 </div>
@@ -72,7 +73,8 @@ export default function Login({
                                     required
                                     tabIndex={2}
                                     autoComplete="current-password"
-                                    placeholder="Password"
+                                    placeholder="Ihr Passwort"
+                                    className="focus-visible:ring-green-500"
                                 />
                                 <InputError message={errors.password} />
                             </div>
@@ -82,27 +84,38 @@ export default function Login({
                                     id="remember"
                                     name="remember"
                                     tabIndex={3}
+                                    className="data-[state=checked]:border-green-600 data-[state=checked]:bg-green-600"
                                 />
-                                <Label htmlFor="remember">Remember me</Label>
+                                <Label
+                                    htmlFor="remember"
+                                    className="text-sm leading-none font-medium peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                                >
+                                    Angemeldet bleiben
+                                </Label>
                             </div>
 
                             <Button
                                 type="submit"
-                                className="mt-4 w-full"
+                                className="mt-4 w-full bg-green-600 font-bold tracking-wider text-white uppercase transition-all hover:bg-green-700 active:scale-[0.98]"
                                 tabIndex={4}
                                 disabled={processing}
-                                data-test="login-button"
                             >
-                                {processing && <Spinner />}
-                                Log in
+                                {processing && (
+                                    <Spinner className="mr-2 h-4 w-4" />
+                                )}
+                                Anmelden
                             </Button>
                         </div>
 
                         {canRegister && (
                             <div className="text-center text-sm text-muted-foreground">
-                                Don't have an account?{' '}
-                                <TextLink href={register()} tabIndex={5}>
-                                    Sign up
+                                Noch kein Konto?{' '}
+                                <TextLink
+                                    href={register()}
+                                    tabIndex={5}
+                                    className="font-semibold text-green-600 hover:text-green-700"
+                                >
+                                    Jetzt registrieren
                                 </TextLink>
                             </div>
                         )}
@@ -111,7 +124,7 @@ export default function Login({
             </Form>
 
             {status && (
-                <div className="mb-4 text-center text-sm font-medium text-green-600">
+                <div className="mt-4 text-center text-sm font-medium text-green-600">
                     {status}
                 </div>
             )}
